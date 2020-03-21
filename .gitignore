@@ -1,0 +1,25 @@
+**/*~
+**/.DS_Store
+.idea
+**/*.class
+*.iml
+target/*
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+conception/diagrams/*
+*.vpp.*
+sonarCommand.txt
+logs/*
+**/target/*
+.project
+.**path
+.settings
+# Avoid ignoring Maven wrapper api file (.api files are usually ignored)
+!/.mvn/wrapper/maven-wrapper.jar
+**/stubs

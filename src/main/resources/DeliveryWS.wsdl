@@ -1,105 +1,59 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="DeliveryServiceImplService" targetNamespace="http://www.polytech.unice.fr/si/4a/isa/dronedelivery/delivery" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.polytech.unice.fr/si/4a/isa/dronedelivery/delivery" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+<?xml version="1.0" encoding="UTF-8" ?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.polytech.unice.fr/si/4a/isa/dronedelivery/delivery" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DeliveryServiceImplService" targetNamespace="http://www.polytech.unice.fr/si/4a/isa/dronedelivery/delivery">
   <wsdl:types>
-<xs:schema xmlns:tns="http://www.polytech.unice.fr/si/4a/isa/dronedelivery/delivery" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.polytech.unice.fr/si/4a/isa/dronedelivery/delivery">
-  <xs:element name="scheduleDelivery" type="tns:scheduleDelivery"/>
-  <xs:element name="scheduleDeliveryResponse" type="tns:scheduleDeliveryResponse"/>
-  <xs:element name="startDelivery" type="tns:startDelivery"/>
-  <xs:element name="startDeliveryResponse" type="tns:startDeliveryResponse"/>
-  <xs:complexType name="scheduleDelivery">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="date" type="xs:string"/>
-      <xs:element minOccurs="0" name="delivery_id" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="scheduleDeliveryResponse">
-    <xs:sequence/>
-  </xs:complexType>
-  <xs:complexType name="startDelivery">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="delivery_id" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="startDeliveryResponse">
-    <xs:sequence/>
-  </xs:complexType>
-  <xs:element name="Exception" type="tns:Exception"/>
-  <xs:complexType name="Exception">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="message" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-</xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.polytech.unice.fr/si/4a/isa/dronedelivery/delivery" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.polytech.unice.fr/si/4a/isa/dronedelivery/delivery">
+      <xs:element name="startDelivery" type="tns:startDelivery" />
+      <xs:element name="startDeliveryResponse" type="tns:startDeliveryResponse" />
+      <xs:complexType name="startDelivery">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="delivery_id" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="startDeliveryResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:element name="Exception" type="tns:Exception" />
+      <xs:complexType name="Exception">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
   </wsdl:types>
-  <wsdl:message name="scheduleDelivery">
-    <wsdl:part name="parameters" element="tns:scheduleDelivery">
-    </wsdl:part>
+  <wsdl:message name="startDelivery">
+    <wsdl:part element="tns:startDelivery" name="parameters"></wsdl:part>
   </wsdl:message>
   <wsdl:message name="Exception">
-    <wsdl:part name="Exception" element="tns:Exception">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="startDelivery">
-    <wsdl:part name="parameters" element="tns:startDelivery">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="scheduleDeliveryResponse">
-    <wsdl:part name="parameters" element="tns:scheduleDeliveryResponse">
-    </wsdl:part>
+    <wsdl:part element="tns:Exception" name="Exception"></wsdl:part>
   </wsdl:message>
   <wsdl:message name="startDeliveryResponse">
-    <wsdl:part name="parameters" element="tns:startDeliveryResponse">
-    </wsdl:part>
+    <wsdl:part element="tns:startDeliveryResponse" name="parameters"></wsdl:part>
   </wsdl:message>
   <wsdl:portType name="DeliveryService">
-    <wsdl:operation name="scheduleDelivery">
-      <wsdl:input name="scheduleDelivery" message="tns:scheduleDelivery">
-    </wsdl:input>
-      <wsdl:output name="scheduleDeliveryResponse" message="tns:scheduleDeliveryResponse">
-    </wsdl:output>
-      <wsdl:fault name="Exception" message="tns:Exception">
-    </wsdl:fault>
-    </wsdl:operation>
     <wsdl:operation name="startDelivery">
-      <wsdl:input name="startDelivery" message="tns:startDelivery">
-    </wsdl:input>
-      <wsdl:output name="startDeliveryResponse" message="tns:startDeliveryResponse">
-    </wsdl:output>
-      <wsdl:fault name="Exception" message="tns:Exception">
-    </wsdl:fault>
+      <wsdl:input message="tns:startDelivery" name="startDelivery"></wsdl:input>
+      <wsdl:output message="tns:startDeliveryResponse" name="startDeliveryResponse"></wsdl:output>
+      <wsdl:fault message="tns:Exception" name="Exception"></wsdl:fault>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="DeliveryServiceImplServiceSoapBinding" type="tns:DeliveryService">
-    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="scheduleDelivery">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="scheduleDelivery">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="scheduleDeliveryResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-      <wsdl:fault name="Exception">
-        <soap:fault name="Exception" use="literal"/>
-      </wsdl:fault>
-    </wsdl:operation>
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="startDelivery">
-      <soap:operation soapAction="" style="document"/>
+      <soap:operation soapAction="" style="document" />
       <wsdl:input name="startDelivery">
-        <soap:body use="literal"/>
+        <soap:body use="literal" />
       </wsdl:input>
       <wsdl:output name="startDeliveryResponse">
-        <soap:body use="literal"/>
+        <soap:body use="literal" />
       </wsdl:output>
       <wsdl:fault name="Exception">
-        <soap:fault name="Exception" use="literal"/>
+        <soap:fault name="Exception" use="literal" />
       </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="DeliveryServiceImplService">
-    <wsdl:port name="DeliveryServiceImplPort" binding="tns:DeliveryServiceImplServiceSoapBinding">
-      <soap:address location="http://localhost:9090/DeliveryServiceImplPort"/>
+    <wsdl:port binding="tns:DeliveryServiceImplServiceSoapBinding" name="DeliveryServiceImplPort">
+      <soap:address location="http://localhost:8080/drone-delivery-backend/webservices/DeliveryWS" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
-

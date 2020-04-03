@@ -18,7 +18,7 @@ pipeline{
             steps {
                 checkout(
                   [$class: 'GitSCM',
-                  branches: [[name: '**']],
+                  branches: [[name: "${env.BRANCH_NAME}"]],
                   doGenerateSubmoduleConfigurations: false,
                   extensions: [
                     [$class: 'SubmoduleOption',

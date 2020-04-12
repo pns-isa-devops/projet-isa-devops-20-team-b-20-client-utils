@@ -1,6 +1,6 @@
 package cli.framework;
 
-import api.API;
+import api.ServiceAPI;
 import cli.commands.*;
 
 import java.util.ArrayList;
@@ -15,16 +15,16 @@ public class Shell
 
     private List<Command> commands;
 
-    private API droneDeliveryAPI;
+    private ServiceAPI serviceAPI;
 
-    public Shell(API droneDeliveryAPI)
+    public Shell(ServiceAPI serviceAPI)
     {
-        this.droneDeliveryAPI = droneDeliveryAPI;
+        this.serviceAPI = serviceAPI;
     }
 
-    public API getDroneDeliveryAPI()
+    public ServiceAPI getServiceAPI()
     {
-        return droneDeliveryAPI;
+        return serviceAPI;
     }
 
     public List<Command> getCommands()

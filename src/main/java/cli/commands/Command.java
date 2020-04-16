@@ -4,6 +4,9 @@ import cli.framework.Shell;
 
 import java.util.List;
 
+/**
+ * All commands should be named with the first letter in upper case and ALL the following letters in lowercase.
+ */
 public abstract class Command
 {
     Shell shell;

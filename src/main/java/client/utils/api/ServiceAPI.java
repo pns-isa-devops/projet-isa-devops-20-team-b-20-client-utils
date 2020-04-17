@@ -1,4 +1,4 @@
-package api;
+package client.utils.api;
 
 public abstract class ServiceAPI {
 

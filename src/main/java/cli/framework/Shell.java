@@ -1,6 +1,5 @@
 package cli.framework;
 
-import api.ServiceAPI;
 import cli.commands.Command;
 
 import java.util.ArrayList;
@@ -12,22 +11,6 @@ import java.util.stream.Collectors;
 public class Shell {
 
     private List<Command> commands;
-
-    //private ServiceAPI serviceAPI;
-    private List<ServiceAPI> serviceAPIList;
-
-    public Shell(ServiceAPI... serviceAPIList) {
-        this.serviceAPIList = Arrays.asList(serviceAPIList);
-    }
-
-    public ServiceAPI getServiceAPI(APIName serviceAPIName) {
-        for (ServiceAPI serviceAPI : this.serviceAPIList) {
-            if (serviceAPI.getAPIName() == serviceAPIName) {
-                return serviceAPI;
-            }
-        }
-        throw new IllegalArgumentException("The specified API Name has not been found in this shell.");
-    }
 
     public List<Command> getCommands() {
         return commands;
